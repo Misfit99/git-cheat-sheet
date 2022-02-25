@@ -1,0 +1,53 @@
+Git commands
+------------
+1. git init --> initializes git local repo
+2. git config --> configuration parameters
+> 3 levels --> global (specific user), local (specific project), system (every user on entire system)
+
+> git config --list --global
+> git config --global user.name <username>
+> git config --global user.email <useremail>
+
+3. git status --> check the status of project files
+
+Untracked files? --> the file which is only present in WD and not in SA
+
+4. git add <file1> <file2> --> adds file(s) to SA
+> git add . OR git add *
+
+5. git rm --cached <file> --> unstage the file
+
+6. git commit -m <msg> --> create the new version of file
+
+git add . + git commit -m <msg> --> git commit -a -m <msg> --> git commit -am <msg>
+
+
+7. git log --> viewing the version history
+
+> git log --oneline --> display all the commits in 1 line per commit
+> git log -2 --> view 2 latest commits
+> git log -2 --oneline --> view latest 2 commits in one line
+> git log -p --> view the changes associated with every commit
+> git log -p -1 --> view the changes associated with latest 1 commit
+> git log --grep=<pattern> --> filter based on msg contents
+> git log --author="username" --> display commits from specific author.
+> git log --since/after="date" --> displays all the commits happened after this date
+> git log --until/before="date" --> displays all the commits happened on or before this date
+> git <command> --help OR git help <command>
+
+8. Undo the un-committed/committed changes
+
+Un-committed changes --> 
+> git restore <file> --> discard WD changes
+> git restore --staged <file> --> discard file from SA or unstage the file
+
+Committed changes --> 2 ways
+
+Safe way --> git revert <SHA>
+> to come out of vim editor, use ":wq"
+Unsafe way --> git reset --hard <SHA> OR git reset --hard HEAD~<num>
+
+9. Display code changes
+git diff --> gives me diff bet WD and SA
+git diff HEAD --> diff bet WD and local repo
+git diff --staged --> diff bet SA and local repo
